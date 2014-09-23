@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyText
+  completion_date: 2014-09-23
+  approved_date: 2014-09-23
+  owner: MyString
+  reviewer: MyString
+
+two:
+  description: MyText
+  completion_date: 2014-09-23
+  approved_date: 2014-09-23
+  owner: MyString
+  reviewer: MyString
