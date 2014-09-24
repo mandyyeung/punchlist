@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20140923232732) do
     t.string   "building"
     t.string   "room_num"
     t.string   "room_name"
-    t.string   "level"
     t.string   "floor"
+    t.string   "part"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20140923232732) do
   create_table "subcontractors", force: true do |t|
     t.string   "name"
     t.string   "bp"
+    t.string   "group"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

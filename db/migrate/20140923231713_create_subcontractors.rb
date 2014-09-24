@@ -3,6 +3,7 @@ class CreateSubcontractors < ActiveRecord::Migration
     create_table :subcontractors do |t|
       t.string :name
       t.string :bp
+      t.string :group
 
       t.timestamps
     end
