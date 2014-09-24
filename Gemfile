@@ -27,6 +27,11 @@ gem 'rails_12factor'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'puma'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

@@ -1,7 +1,22 @@
 ActiveAdmin.register Punchitem do
 
   permit_params :description, :completion_date, :approved_date, :owner, :reviewer,
-                subcontractor_attributes: [:id]
+                :subcontractor_id, :superintendent_id, :engineer_id, :location_id
+
+  scope :joined, :default => true do |punchitems|
+    punchitems.includes [:subcontractor]
+  end
+
+  index do
+    column :id
+    column 'Room', :location, sortable: :location
+    column :description
+    column :subcontractor
+    column :superintendent
+    column :owner
+    column :reviewer
+    actions if current_admin_user.admin?
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
