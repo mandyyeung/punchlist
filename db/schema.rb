@@ -71,6 +71,10 @@ ActiveRecord::Schema.define(version: 20140923232732) do
     t.date     "approved_date"
     t.string   "owner"
     t.string   "reviewer"
+    t.integer  "subcontractor_id"
+    t.integer  "superintendent_id"
+    t.integer  "engineer_id"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

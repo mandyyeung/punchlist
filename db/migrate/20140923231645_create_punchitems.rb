@@ -6,6 +6,10 @@ class CreatePunchitems < ActiveRecord::Migration
       t.date :approved_date
       t.string :owner
       t.string :reviewer
+      t.belongs_to :subcontractor
+      t.belongs_to :superintendent
+      t.belongs_to :engineer
+      t.belongs_to :location
 
       t.timestamps
     end

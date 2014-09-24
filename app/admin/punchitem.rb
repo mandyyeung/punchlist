@@ -1,6 +1,7 @@
 ActiveAdmin.register Punchitem do
 
-  permit_params :description, :completion_date, :approved_date, :owner, :reviewer
+  permit_params :description, :completion_date, :approved_date, :owner, :reviewer,
+                subcontractor_attributes: [:id]
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
