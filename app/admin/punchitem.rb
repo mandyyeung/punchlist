@@ -3,8 +3,8 @@ ActiveAdmin.register Punchitem do
   permit_params :description, :completion_date, :approved_date, :owner, :reviewer,
                 :subcontractor_id, :superintendent_id, :engineer_id, :location_id
 
-  scope :joined, :default => true do |punchitems|
-    punchitems.includes [:subcontractor]
+  scope 'Open Items', :open do |item|
+    item.where('completion_date IS NULL')
   end
 
   index do
