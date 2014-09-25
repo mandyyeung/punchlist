@@ -20,8 +20,16 @@ ActiveAdmin.register Punchitem do
   permit_params :description, :completion_date, :approved_date, :owner, :reviewer,
                 :subcontractor_id, :superintendent_id, :engineer_id, :location_id
 
+  scope 'All Items', :open do |item|
+    item.all
+  end
+
   scope 'Open Items', :open do |item|
     item.where('completion_date IS NULL')
+  end
+
+  scope 'Closed Items', :open do |item|
+    item.where.not('completion_date IS NULL')
   end
 
   index do

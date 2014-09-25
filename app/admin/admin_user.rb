@@ -1,4 +1,4 @@
-ActiveAdmin.register AdminUser do
+ActiveAdmin.register AdminUser, :as => 'User' do
   menu :if => proc{ current_admin_user.admin? }
   permit_params :first_name, :last_name, :email, :password, :password_confirmation
 
