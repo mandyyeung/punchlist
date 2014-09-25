@@ -27,6 +27,7 @@ gem 'rails_12factor'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'puma'
+gem 'active_admin_importable'
 
 group :development do
   gem 'better_errors'

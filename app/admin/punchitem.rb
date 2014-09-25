@@ -1,4 +1,19 @@
 ActiveAdmin.register Punchitem do
+  active_admin_importable do |model, hash|
+    subcontractor = Subcontractor.find_by_name(hash[:subcontractor])
+    location = Location.find_by_room_num(hash[:location])
+    engineer = Engineer.find_by_name(hash[:engineer])
+    superintendent = Superintendent.find_by_name(hash[:superintendent])
+    hash[:subcontractor_id] = subcontractor.id
+    hash[:location_id] = location.id
+    hash[:engineer_id] = engineer.id
+    hash[:superintendent_id] = superintendent.id
+    hash.delete(:subcontractor)
+    hash.delete(:location)
+    hash.delete(:engineer)
+    hash.delete(:superintendent)
+    model.create!(hash)
+  end
 
   permit_params :description, :completion_date, :approved_date, :owner, :reviewer,
                 :subcontractor_id, :superintendent_id, :engineer_id, :location_id
