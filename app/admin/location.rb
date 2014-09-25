@@ -1,5 +1,6 @@
 ActiveAdmin.register Location do
-
+  active_admin_importable
+  
   permit_params :building, :room_num, :room_name, :floor, :part
 
   sidebar 'Punchlist items in this Room', :only => :show do
