@@ -1,6 +1,18 @@
 ActiveAdmin.register Subcontractor do
+  menu :parent => 'Project Settings'
   active_admin_importable
   permit_params :name, :bp, :group, :trade
+
+  index do
+    column '#', :id
+    column :name
+    column 'BP#', :bp
+    column :group
+    column :trade
+    column :created_at if current_admin_user.admin?
+    column :updated_at if current_admin_user.admin?
+    actions if current_admin_user.admin?
+  end
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #

@@ -1,4 +1,6 @@
 ActiveAdmin.register Punchitem do
+  menu :priority => 1
+
   active_admin_importable do |model, hash|
     subcontractor = Subcontractor.find_by_name(hash[:subcontractor])
     location = Location.find_by_room_num(hash[:location])
@@ -30,8 +32,11 @@ ActiveAdmin.register Punchitem do
     column :superintendent
     column :owner
     column :reviewer
+    column :created_at if current_admin_user.admin?
+    column :updated_at if current_admin_user.admin?
     actions if current_admin_user.admin?
   end
+
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

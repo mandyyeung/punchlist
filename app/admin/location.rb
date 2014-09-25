@@ -1,7 +1,20 @@
 ActiveAdmin.register Location do
+  menu :parent => 'Project Settings'
   active_admin_importable
-  
+
   permit_params :building, :room_num, :room_name, :floor, :part
+
+  index do
+    column '#', :id
+    column :building
+    column :room_num
+    column :room_name
+    column :floor
+    column :part
+    column :created_at if current_admin_user.admin?
+    column :updated_at if current_admin_user.admin?
+    actions if current_admin_user.admin?
+  end
 
   sidebar 'Punchlist items in this Room', :only => :show do
     table_for Punchitem.joins(:location).where(:location_id => location.id) do |t|
