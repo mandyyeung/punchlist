@@ -28,6 +28,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'puma'
 gem 'active_admin_importable'
+gem 'pivot_table'
 
 group :development do
   gem 'better_errors'
