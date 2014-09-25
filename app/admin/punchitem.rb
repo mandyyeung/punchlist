@@ -9,7 +9,7 @@ ActiveAdmin.register Punchitem do
 
   index do
     column :id
-    column 'Room', :location, sortable: :location
+    column 'Room', :location
     column :description
     column :subcontractor
     column :superintendent
